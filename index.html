@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>archERP - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <h1>archERP</h1>
+    <nav>
+      <a href="index.html" class="active">Dashboard</a>
+      <a href="inventory.html">Inventory</a>
+      <a href="hr.html">HR</a>
+      <a href="finance.html">Finance</a>
+    </nav>
+    <div class="top-bar">
+      <span id="userDisplay"></span>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Overview Dashboard</h2>
+
+    <div class="dashboard">
+      <div class="card">
+        <h2>Inventory Summary</h2>
+        <p>Products in Stock: <strong>42</strong></p>
+      </div>
+
+      <div class="card">
+        <h2>HR Summary</h2>
+        <p>Active Employees: <strong>17</strong></p>
+      </div>
+
+      <div class="card">
+        <h2>Finance Summary</h2>
+        <p>Total Expenses: <strong>₹2,45,000</strong></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>© 2025 archERP</footer>
+
+  <script src="script.js"></script>
+  <script>
+  const userDisplay = document.getElementById("userDisplay");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  const username = localStorage.getItem("loggedInUser");
+
+  if (username) {
+    userDisplay.textContent = "Logged in as: " + username;
+  } else {
+    window.location.href = "login.html";
+  }
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "login.html";
+  });
+</script>
+
+</body>
+</html>
